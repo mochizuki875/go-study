@@ -1,7 +1,6 @@
 package main
 
 import (
-	// "fmt"
 	"io"
 	"log"
 	"net/http"
@@ -22,7 +21,7 @@ func main() {
 	helloHandler := func(w http.ResponseWriter, req *http.Request) {
 		log.Println("[Handler] Call helloHandler")
 		
-		q <- timeToString(time.Now()) // channel送信
+		q <- timeToString(time.Now()) // channel送信（timeはリクエスト受信時の値になる）
 		io.WriteString(w, "Hello, world!\n")
 	}
 
@@ -30,7 +29,7 @@ func main() {
 	go func(){
 		log.Println("[goroutine] Start goroutine & Receive Chennel")
 		for {
-			time.Sleep(3*time.Second)
+			time.Sleep(3*time.Second) // channel受信まで3秒待機
 			msg := <-q
 			log.Println("[goroutine]Receive Channel:", msg)
 		}
