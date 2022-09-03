@@ -32,10 +32,14 @@ func main() {
 		io.WriteString(w, "Hello, world!\n")
 		// io.WriteString(w, "Hello, world!\n")
 
-		now := <- reqCh
-		log.Println(now)
-
 	}
+
+	go func(){
+		for {
+			now := <- reqCh // 多分コレがダメ
+			log.Println(now)
+		}
+	}()
 
 	// Handlerとパスの対応付け
 	http.HandleFunc("/", helloHandler)

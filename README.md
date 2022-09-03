@@ -3,10 +3,16 @@ Go言語学習時のサンプルプログラム集
 
 ## 学習教材
 ### 基本文法
-基本文法は公式に沿って学習
+基本文法は以下に沿って学習
 
-- A Tour of Go（ https://go-tour-jp.appspot.com/list ）
+- A Tour of Go (https://go-tour-jp.appspot.com/list)
 
+### 配列とSlice
+- 構造体を要素に持つスライス (https://nishinatoshiharu.com/initialize-structure-slice/)
+
+### インターフェイス
+- Go言語 - 空インターフェースと型アサーション (https://blog.y-yuki.net/entry/2017/05/08/000000)
+- Stringerで出力形式をカスタマイズしよう!(https://selfnote.work/20200716/programming/stringer-with-golang/)
 
 ### goroutine & channel
 goroutineとchannelは頻出かつ難易度が高いので以下コンテンツを利用
@@ -31,6 +37,24 @@ ProductVersion: 12.3
 BuildVersion:   21E230
 
 ❯❯❯ go version
-go version go1.17.6 darwin/amd64
+go version go1.19 darwin/amd64
 ```
 
+## Build & Execute
+
+```
+go run hello.go
+```
+
+## Compile & Execute
+
+```
+go build hello.go
+./hello
+```
+
+## 参考
+- プログラミング言語Go完全入門(https://docs.google.com/presentation/d/1RVx8oeIMAWxbB7ZP2IcgZXnbZokjCmTUca-AbIpORGk/edit#slide=id.g4f417182ce_0_0)
+- WikiBook Go (https://ja.wikibooks.org/wiki/Go)
+- とほほのGo言語入門 (https://www.tohoho-web.com/ex/golang.html)
+- 【Go】パッケージ/モジュールやgo modコマンドについてまとめ (https://blog.framinal.life/entry/2021/04/11/013819)
