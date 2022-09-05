@@ -27,6 +27,16 @@ goroutineなどスレッドを跨ぐ場合に便利
 - contextの概要(https://zenn.dev/hsaki/books/golang-context/viewer/definition)
 - context(https://pkg.go.dev/context)
 
+`context.Context型の定義`
+```
+type Context interface {
+    Deadline() (deadline time.Time, ok bool)
+    Done() <-chan struct{}
+    Err() error
+    Value(key interface{}) interface{}
+}
+```
+
 ### httpサーバー
 goでhttpサーバーを起動するための`net/http`パッケージの利用方法を以下コンテンツにて学習
 
