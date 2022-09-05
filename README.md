@@ -24,8 +24,9 @@ goroutineとchannelは頻出かつ難易度が高いので以下コンテンツ�
 タイムアウトやキャンセルなどの情報をcontextと言う単位で扱う。
 goroutineなどスレッドを跨ぐ場合に便利
 
-- contextの概要(https://zenn.dev/hsaki/books/golang-context/viewer/definition)
 - context(https://pkg.go.dev/context)
+- contextの概要(https://zenn.dev/hsaki/books/golang-context/viewer/definition)
+- Doneメソッド(https://zenn.dev/hsaki/books/golang-context/viewer/done)
 
 `context.Context型の定義`
 ```
