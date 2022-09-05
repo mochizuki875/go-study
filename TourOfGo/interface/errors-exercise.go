@@ -12,15 +12,23 @@ func (e ErrNegativeSqrt) Error() string {
 }
 
 func Sqrt(x float64) (float64, error) {
+
+	// エラー処理
 	if x < 0 {
 		err := ErrNegativeSqrt(x)
 		return x, err
 	}
 
-	return 0, nil
+	z := float64(1)
+
+	// 平方根算出(整数(ニュートン法))
+	for z*z <= x {
+		z++
+	}
+	return z - 1, nil
 }
 
 func main() {
-	fmt.Println(Sqrt(2))
+	fmt.Println(Sqrt(9))
 	fmt.Println(Sqrt(-2))
 }

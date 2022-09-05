@@ -17,9 +17,15 @@ Go言語学習時のサンプルプログラム集
 ### goroutine & channel
 goroutineとchannelは頻出かつ難易度が高いので以下コンテンツを利用
 
-- Goで並行処理(基本編)（ https://zenn.dev/hsaki/books/golang-concurrency/viewer/intro ）
-- Goのgoroutine, channelをちょっと攻略！（ https://qiita.com/taigamikami/items/fc798cdd6a4eaf9a7d5e ）
+- Goで並行処理(基本編)（https://zenn.dev/hsaki/books/golang-concurrency/viewer/intro）
+- Goのgoroutine, channelをちょっと攻略！（https://qiita.com/taigamikami/items/fc798cdd6a4eaf9a7d5e）
 
+### Context
+タイムアウトやキャンセルなどの情報をcontextと言う単位で扱う。
+goroutineなどスレッドを跨ぐ場合に便利
+
+- contextの概要(https://zenn.dev/hsaki/books/golang-context/viewer/definition)
+- context(https://pkg.go.dev/context)
 
 ### httpサーバー
 goでhttpサーバーを起動するための`net/http`パッケージの利用方法を以下コンテンツにて学習
