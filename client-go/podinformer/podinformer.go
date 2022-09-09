@@ -34,6 +34,9 @@ func main() {
 	}
 
 	// Create InformerFactory
+	// 戻り値としてSharedInformerFactoryと言うinterfaceが指定されてるけど実際には初期化された構造体のポインタが返される
+	// https://github.com/kubernetes/client-go/blob/v0.25.0/informers/factory.go#L96
+	// https://github.com/kubernetes/client-go/blob/2666bd29867c96168c5e9429fd74fd9bfbedac8b/informers/factory.go#L109
 	informerFactory := informers.NewSharedInformerFactory(clientset, time.Second*30)
 
 	// Create pod informer by informerFactory
