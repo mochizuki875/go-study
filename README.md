@@ -76,3 +76,8 @@ go build hello.go
 - とほほのGo言語入門 (https://www.tohoho-web.com/ex/golang.html)
 - 【Go】パッケージ/モジュールやgo modコマンドについてまとめ (https://blog.framinal.life/entry/2021/04/11/013819)
 - kubecontorller-book-sample-snippet(https://github.com/govargo/kubecontorller-book-sample-snippet)
+- Kubernetesのコードリーディングをする上で知っておくと良さそうなこと(https://bells17.medium.com/things-you-should-know-about-reading-kubernetes-codes-933b0ee6181d)
+- Kubernetesコントリビューターチートシート(https://github.com/kubernetes/community/blob/master/contributors/guide/contributor-cheatsheet/README-ja.md)
+- sample-controller(https://github.com/kubernetes/sample-controller/tree/master)
+- client-go under the hood
+(https://github.com/kubernetes/sample-controller/blob/release-1.25/docs/controller-client-go.md)
