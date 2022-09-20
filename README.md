@@ -44,6 +44,9 @@ goでhttpサーバーを起動するための`net/http`パッケージの利用�
 - Golang初心者が`net/http`パッケージでWebサーバーをホストする流れを追う（ https://zenn.dev/skonb/articles/0bad1d59371d09 )
 - Deep Dive into The Go's Web Server（ https://zenn.dev/hsaki/books/golang-httpserver-internal/viewer/intro ）
 
+### sample-controller
+`Kubernetes`の`Controller`に関するサンプル実装
+https://github.com/kubernetes/sample-controller/tree/master
 
 ## 学習環境
 
@@ -78,6 +81,5 @@ go build hello.go
 - kubecontorller-book-sample-snippet(https://github.com/govargo/kubecontorller-book-sample-snippet)
 - Kubernetesのコードリーディングをする上で知っておくと良さそうなこと(https://bells17.medium.com/things-you-should-know-about-reading-kubernetes-codes-933b0ee6181d)
 - Kubernetesコントリビューターチートシート(https://github.com/kubernetes/community/blob/master/contributors/guide/contributor-cheatsheet/README-ja.md)
-- sample-controller(https://github.com/kubernetes/sample-controller/tree/master)
 - client-go under the hood
 (https://github.com/kubernetes/sample-controller/blob/release-1.25/docs/controller-client-go.md)
