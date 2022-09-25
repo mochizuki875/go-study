@@ -38,14 +38,23 @@ type Context interface {
 }
 ```
 
+### Cobra
+コマンドラインインターフェイスを作成するためのライブラリ
+
+- spf13/cobra(https://github.com/spf13/cobra)
+- Cobra Generator コマンドテンプレートの作成(https://github.com/spf13/cobra-cli/blob/main/README.md)
+- User Guide コマンドの実装例(https://github.com/spf13/cobra/blob/main/user_guide.md)
+- Go初心者がcobraを使ってコマンドラインツールを作ってみた話(https://blog.engineer.adways.net/entry/advent_calendar_2018/18)
+- 【Golang】cobraで作ったコマンドラインツール(CLI)にフラグを追加する (pflag)(https://simple-minds-think-alike.moritamorie.com/entry/add-flags-to-cobra-app)
+
 ### httpサーバー
-goでhttpサーバーを起動するための`net/http`パッケージの利用方法を以下コンテンツにて学習
+goでhttpサーバーを起動するための`net/http`パッケージの利用方法を以下コンテンツにて学習  
 
 - Golang初心者が`net/http`パッケージでWebサーバーをホストする流れを追う（ https://zenn.dev/skonb/articles/0bad1d59371d09 )
 - Deep Dive into The Go's Web Server（ https://zenn.dev/hsaki/books/golang-httpserver-internal/viewer/intro ）
 
 ### sample-controller
-`Kubernetes`の`Controller`に関するサンプル実装
+`Kubernetes`の`Controller`に関するサンプル実装  
 https://github.com/kubernetes/sample-controller/tree/master
 
 ## 学習環境

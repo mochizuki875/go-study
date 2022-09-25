@@ -229,7 +229,6 @@ func (c *Controller) processNextWorkItem() bool {
 		https://pkg.go.dev/k8s.io/client-go@v0.25.0/util/workqueue#Interface.Get
 	*/
 	obj, shutdown := c.workqueue.Get()
-	fmt.Println("[Debug] shutdown = ", shutdown)
 
 	if shutdown { // WorkQueueが空になったらshutdown = trueになってfalseを返す
 		return false
