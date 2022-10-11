@@ -1,3 +1,7 @@
+/*
+arrayとsliceの比較
+*/
+
 package main
 
 import "fmt"

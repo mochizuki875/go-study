@@ -1,3 +1,10 @@
+/*
+  GoでJsonを扱う
+  `json: "hoge"`みたいな構造体タグを付与することでフィールドをJsonで扱える
+
+  https://qiita.com/Syuparn/items/9e6fb68afb5418893c23
+*/
+
 package main
 
 import (
@@ -20,17 +27,17 @@ type JobType struct {
 func main() {
 	name := "Mori"
 	number := 3
-	// jobType := JobType{"worker", 1}
+	jobType := JobType{"worker", 1}
 	emp := Employee{
-		Name:   name,
-		Number: &number,
-		// JobType: jobType,
+		Name:    name,
+		Number:  &number,
+		JobType: jobType,
 	}
 
-	fmt.Println(emp)
+	fmt.Println(emp) // 普通にstructとして出力
 	fmt.Println(reflect.TypeOf(emp))
 
-	emp_json, err := json.Marshal(emp)
+	emp_json, err := json.Marshal(emp) // Jsonとして出力
 	if err != nil {
 		fmt.Println(err)
 		return

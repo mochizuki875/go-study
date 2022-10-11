@@ -53,9 +53,9 @@ goでhttpサーバーを起動するための`net/http`パッケージの利用�
 - Golang初心者が`net/http`パッケージでWebサーバーをホストする流れを追う（ https://zenn.dev/skonb/articles/0bad1d59371d09 )
 - Deep Dive into The Go's Web Server（ https://zenn.dev/hsaki/books/golang-httpserver-internal/viewer/intro ）
 
-### sample-controller
-`Kubernetes`の`Controller`に関するサンプル実装  
-https://github.com/kubernetes/sample-controller/tree/master
+### Kubernetes
+- Workqueue Example(https://github.com/kubernetes/client-go/tree/master/examples/workqueue)
+- sample-controller `Kubernetes`の`Controller`に関するサンプル実装(https://github.com/kubernetes/sample-controller/tree/master)
 
 ## 学習環境
 

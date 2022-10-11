@@ -1,3 +1,8 @@
+/*
+ Generics
+ どのような型も対応できる汎用型の指定
+*/
+
 package main
 
 import "fmt"

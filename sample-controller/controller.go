@@ -228,9 +228,9 @@ func (c *Controller) processNextWorkItem() bool {
 		WorkQueueから先頭の値を取得
 		https://pkg.go.dev/k8s.io/client-go@v0.25.0/util/workqueue#Interface.Get
 	*/
-	obj, shutdown := c.workqueue.Get()
+	obj, shutdown := c.workqueue.Get() // WorkQueueからアイテムが取得できるまでWait
 
-	if shutdown { // WorkQueueが空になったらshutdown = trueになってfalseを返す
+	if shutdown { // WorkQueueが停止(sliceの長さが0)したらshutdown = trueになってfalseを返す
 		return false
 	}
 

@@ -1,3 +1,7 @@
+/*
+	sliceへの要素追加
+*/
+
 package main
 
 import "fmt"

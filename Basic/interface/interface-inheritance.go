@@ -1,5 +1,6 @@
 /*
 GoでInterfaceと埋め込みを実現する
+構造体に構造体を埋め込むパターン
 
 https://qiita.com/Yuuki557/items/b74d0304d01a90f90947
 */
@@ -16,7 +17,7 @@ type Human struct {
 	name string
 }
 
-func (h *Human) GetName() string {
+func (h *Human) GetName() string { // Humanに関する実装
 	return h.name
 }
 

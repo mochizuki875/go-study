@@ -51,6 +51,10 @@ func main() {
 	fmt.Println(reflect.TypeOf(a))
 	fmt.Println("MyFloatのa.Abs(): ", a.Abs()) // ★MyFloat型にとってのAbs()が呼ばれる
 
+	// アサーションによる型チェックと実態の取得
+	value, ok := a.(MyFloat)
+	fmt.Printf("(value,ok) = (%v,%v)\n", value, ok)
+
 	fmt.Println("==================")
 
 	a = &v // &Vertex型の&vにインターフェイスを実装(AbsはPointer-Receiverなのでvとしてはダメ)
