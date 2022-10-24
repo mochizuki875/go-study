@@ -50,7 +50,7 @@ func main() {
 	})
 
 	// Start Go routines
-	// InformerがPodを監視しin-memory-cacheにデータを格納
+	// InformerがPodを監視しin-memory-cacheにデータを格納&イベント発生時にEventHandlerで定義した処理を実行
 	informerFactory.Start(wait.NeverStop)
 	// Wait until finish caching with List API
 	informerFactory.WaitForCacheSync(wait.NeverStop)

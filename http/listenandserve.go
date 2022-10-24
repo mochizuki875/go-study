@@ -15,11 +15,10 @@ func main() {
 		io.WriteString(w, "Hello, world!\n")
 	}
 
-	log.Println("[Debug] http.ListenAndServe(\":8080\", nil)")
-
-	Handlerとパスの対応付け
+	// Handlerとパスの対応付け
 	http.HandleFunc("/", helloHandler)
 
 	// httpサーバー起動
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Println("Server Start")
+	http.ListenAndServe(":8080", nil)
 }

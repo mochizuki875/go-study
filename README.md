@@ -20,6 +20,11 @@ goroutineとchannelは頻出かつ難易度が高いので以下コンテンツ�
 - Goで並行処理(基本編)（https://zenn.dev/hsaki/books/golang-concurrency/viewer/intro）
 - Goのgoroutine, channelをちょっと攻略！（https://qiita.com/taigamikami/items/fc798cdd6a4eaf9a7d5e）
 
+### Queue
+- `slice`や`channel`を用いて実現できる
+- workqueue(https://qiita.com/tatsuhiro-t/items/49043fca96e484de6261)
+  - `Kubernetes`の提供する`client-go`が持つ`WorkQueue`の仕組み
+
 ### Context
 タイムアウトやキャンセルなどの情報をcontextと言う単位で扱う。
 goroutineなどスレッドを跨ぐ場合に便利
@@ -51,6 +56,7 @@ type Context interface {
 goでhttpサーバーを起動するための`net/http`パッケージの利用方法を以下コンテンツにて学習  
 
 - Golang初心者が`net/http`パッケージでWebサーバーをホストする流れを追う（ https://zenn.dev/skonb/articles/0bad1d59371d09 )
+- Goのhttp.Handlerやhttp.HandlerFuncをちゃんと理解する(https://journal.lampetty.net/entry/understanding-http-handler-in-go)
 - Deep Dive into The Go's Web Server（ https://zenn.dev/hsaki/books/golang-httpserver-internal/viewer/intro ）
 
 ### Kubernetes
