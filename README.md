@@ -59,6 +59,15 @@ goでhttpサーバーを起動するための`net/http`パッケージの利用�
 - Goのhttp.Handlerやhttp.HandlerFuncをちゃんと理解する(https://journal.lampetty.net/entry/understanding-http-handler-in-go)
 - Deep Dive into The Go's Web Server（ https://zenn.dev/hsaki/books/golang-httpserver-internal/viewer/intro ）
 
+### Go Test
+- Go言語でテスト go test(https://zenn.dev/ichi320/articles/70efa1f122cf8c)
+
+```
+$ go test
+$ go test -v
+$ go test ${DIR}
+```
+
 ### Kubernetes
 - Workqueue Example(https://github.com/kubernetes/client-go/tree/master/examples/workqueue)
 - sample-controller `Kubernetes`の`Controller`に関するサンプル実装(https://github.com/kubernetes/sample-controller/tree/master)
