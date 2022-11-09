@@ -38,7 +38,7 @@ func main() {
 	// gen(ctx)の戻り値は<-chan intなのでchannelが受信した値がnに入る
 	for n := range gen(ctx) { // channelがcloseするまで受信を続ける
 		fmt.Println(n)
-		if n == 5 {
+		if n == 5 { // gen channelに5が格納されるとbreakしてcancel()が呼ばれる
 			break
 		}
 	}
