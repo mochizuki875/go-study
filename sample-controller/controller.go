@@ -157,9 +157,9 @@ func NewController(
 	deploymentInformer.Informer().AddEventHandler(cache.ResourceEventHandlerFuncs{
 		AddFunc: controller.handleObject,
 		UpdateFunc: func(old, new interface{}) {
-			newDepl := new.(*appsv1.Deployment)
+			newDepl := new.(*appsv1.Deployment) // 型アサーションで実態型として取得
 			oldDepl := old.(*appsv1.Deployment)
-			if newDepl.ResourceVersion == oldDepl.ResourceVersion { // 新旧Deploymentの差分比較
+			if newDepl.ResourceVersion == oldDepl.ResourceVersion { // 新旧Deploymentの差分比較(ResourceVersionフィールドを使用)
 				// Periodic resync will send update events for all known Deployments.
 				// Two different versions of the same Deployment will always have different RVs.
 				return

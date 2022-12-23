@@ -18,17 +18,21 @@ import (
 
 func main() {
 	var defaultKubeConfigPath string
+
+	// ユーザーのホームディレクトリを取得
 	if home := homedir.HomeDir(); home != "" {
 		// build kubeconfig path from $HOME dir
 		defaultKubeConfigPath = filepath.Join(home, ".kube", "config")
 	}
 
 	// set kubeconfig flag
+	// コマンド実行時のフラグ(--kubeconfig)からkubeconfigのパスを取得(あれば)してkubeconfigにセット
+	// フラグがなければdefaultKubeConfigPathをデフォルト値として使用
 	kubeconfig := flag.String("kubeconfig", defaultKubeConfigPath, "kubeconfig config file")
 	flag.Parse()
 
-	config, _ := clientcmd.BuildConfigFromFlags("", *kubeconfig)
-	clientset, err := kubernetes.NewForConfig(config)
+	config, _ := clientcmd.BuildConfigFromFlags("", *kubeconfig) // kubeconfigからclient-goの*rest.configを生成
+	clientset, err := kubernetes.NewForConfig(config)            // clientsetを作成(clientsetは各API Groupのリソースを操作するためのclientの集まり)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -39,6 +43,7 @@ func main() {
 	// https://github.com/kubernetes/client-go/blob/2666bd29867c96168c5e9429fd74fd9bfbedac8b/informers/factory.go#L109
 	informerFactory := informers.NewSharedInformerFactory(clientset, time.Second*30)
 
+	// informerFactoryからPod Informerを作成
 	// Create pod informer by informerFactory
 	podInformer := informerFactory.Core().V1().Pods()
 
@@ -58,6 +63,7 @@ func main() {
 	// Listerを作成してin-memory-cacheからPodをList
 	// ================================================
 
+	// informerからListerを作成(Listerはinformerのin-memory-cacheから値を取得)
 	// Create Pod Lister
 	podLister := podInformer.Lister()
 

@@ -73,7 +73,6 @@ func main() {
 			}
 			// Workqueueへのkey追加
 			// https://pkg.go.dev/k8s.io/client-go@v0.25.0/util/workqueue#Type.Add
-			// ※workqueueパッケージに含まれる全てのstruct共通のメソッドとして定義
 			queue.Add(key)
 			log.Println("Added: " + key)
 		},
