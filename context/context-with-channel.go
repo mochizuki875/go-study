@@ -22,7 +22,7 @@ func num(ctx context.Context, dst chan int) {
 		case <-ctx.Done(): // Done channelがcloseされたら実行される(ctx.Done()はDone channelを返す)
 			return // returning not to leak the goroutine
 		case dst <- n: // dstに送信可能な時はdst <- nが実行される
-			fmt.Println("dst <- n")
+			fmt.Println("dst <- ", n)
 			n++
 		}
 	}
@@ -30,8 +30,9 @@ func num(ctx context.Context, dst chan int) {
 
 func main() {
 
-	ctx, cancel := context.WithCancel(context.Background()) // Done channelを持つcontextとcancel関数を返す
+	ctx, cancel := context.WithCancel(context.Background()) // ★Done channelを持つcontextとcancel関数を返す
 
+	defer fmt.Println("main() called cancel(), receive <-ctx.Done()")
 	defer cancel() // cancelが呼ばれるとDone channelがcloseされる
 
 	// genを実行
@@ -39,6 +40,7 @@ func main() {
 	for n := range gen(ctx) { // channelがcloseするまで受信を続ける
 		fmt.Println(n)
 		if n == 5 { // gen channelに5が格納されるとbreakしてcancel()が呼ばれる
+			fmt.Println("n=5 break")
 			break
 		}
 	}

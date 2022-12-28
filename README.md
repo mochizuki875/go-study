@@ -12,7 +12,9 @@ Go言語学習時のサンプルプログラム集
 
 ### インターフェイス
 - Go言語 - 空インターフェースと型アサーション (https://blog.y-yuki.net/entry/2017/05/08/000000)
+- Go言語(golang)のinterface{}を型アサーション/型キャスト(https://golang.hateblo.jp/entry/golang-interface-type-assertion)
 - Stringerで出力形式をカスタマイズしよう!(https://selfnote.work/20200716/programming/stringer-with-golang/)
+
 
 ### goroutine & channel
 goroutineとchannelは頻出かつ難易度が高いので以下コンテンツを利用

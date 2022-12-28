@@ -18,6 +18,7 @@ type IHuman interface { // インターフェイス定義
 	GetAge() int
 }
 
+// 普通の構造体定義とメソッド実装
 type Child struct {
 	name string
 	age  int
@@ -42,6 +43,7 @@ func main() {
 	// fmt.Println("[Child Fild] ", "name: ", tom.name, " age: ", tom.age)
 	fmt.Println(*tom)
 
+	// ChildrenをIHumanに実装
 	human = tom // 普通のインターフェイスの使い方
 	fmt.Println("[IHuman Func] ", "Name: ", human.GetName(), " Age: ", human.GetAge())
 	fmt.Println(reflect.TypeOf(human))
@@ -49,16 +51,21 @@ func main() {
 	fmt.Println("=========================")
 
 	// ★インターフェイスを実装していないAdultにChildを埋め込む
-	// AdultにIHumanインターフェイスを実装したChildを埋め込んでいるため、AdultはChildに実装されたメソッドをあたかも自分のメソッドのように呼び出せる
+	// AdultにIHumanインターフェイスを実装してChildを埋め込む(IHuman→&Child)
+	// AdultはChildに実装されたメソッドをあたかも自分のメソッドのように呼び出せる
 	john := &Adult{&Child{name: "john", age: 30}, true}
 	//fmt.Println("[Adult Fild] ", "name: ", john.name, " age: ", john.age, "smoke: ", *john.smoke)
+	fmt.Println("[IHuman Func] ", "GetName: ", john.GetName(), " GetAge: ", john.GetAge())
 	fmt.Println(*john)
 	// fmt.Println(*&john.name) // nameはAdultのフィールドでないのでアクセスできない(あくまでIHUMANが継承されているだけ)
 	fmt.Println(*&john.smoke) // smokeはAdultのフィールドなのでアクセスできる
 
 	human = john
-	fmt.Println("[IHuman Func] ", "GetName: ", human.GetName(), " GetAge: ", human.GetAge()) // IHUMANが継承されているのでメソッド呼び出しができる
-
+	fmt.Println("[IHuman Func] ", "GetName: ", human.GetName(), " GetAge: ", human.GetAge()) // IHumanが継承されているのでメソッド呼び出しができる
 	fmt.Println(reflect.TypeOf(human))
+
+	ihuman, ok := human.(IHuman)
+
+	fmt.Println(ihuman, ok)
 
 }
