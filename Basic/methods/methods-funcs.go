@@ -21,8 +21,8 @@ func ADD(v Vertex) int {
 
 func main() {
 	v := Vertex{3, 4}
-	fmt.Println(v.add())
-	fmt.Println(ADD(v))
+	fmt.Println(v.add()) // メソッド
+	fmt.Println(ADD(v)) // 関数
 
 	fmt.Println(v.update()) // 6 8
 	fmt.Println(v)          // {3, 4} 元の構造体の値は変わらない
