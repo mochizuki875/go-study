@@ -25,7 +25,8 @@ func main(){
 
 	PAGE_SIZE := syscall.Getpagesize() // ページサイズを取得(x86_64アーキテクチャなら4096byte)
 
-	fmt.Println("mmap()により仮想メモリを100MiB取得します。")
+	fmt.Println("mmap()により仮想メモリを100MiB取得します。(1ページ=" , PAGE_SIZE, "byte)")
+	fmt.Println("*Press Enter")
 	scanner.Scan() // 入力待ち
 
 	memregion, err := syscall.Mmap(-1, 0, ALLOC_SIZE, syscall.PROT_READ|syscall.PROT_WRITE, syscall.MAP_ANON|syscall.MAP_PRIVATE)
@@ -35,7 +36,8 @@ func main(){
 
 	fmt.Println("mmap()により仮想メモリを100MiB取得しました。")
 	fmt.Println("=========================================================")
-	fmt.Println("各ページへの初回書き込みを行い物理メモリを取得します。")
+	fmt.Println("各ページへの1回目の書き込みを行い物理メモリを取得します。(デマンドページング)")
+	fmt.Println("*Press Enter")
 	scanner.Scan() // 入力待ち
 
 	now := time.Now()
@@ -46,12 +48,14 @@ func main(){
 
 	fmt.Printf("所要時間: %vms\n", time.Since(now).Milliseconds())
 
-	fmt.Println("各ページへの初回書き込みおよび物理メモリの取得が完了しました。")
+	fmt.Println("各ページへの1回目の書き込みおよび物理メモリの取得が完了しました。")
+	fmt.Println("*Press Enter")
 
 	scanner.Scan() // 入力待ち
 
 	fmt.Println("=========================================================")
-	fmt.Println("各ページへの2回目の書き込みを行います。(物理メモリは確保済み)")
+	fmt.Println("各ページへの2回目の書き込みを行います。(1回目の書き込みにより物理メモリは確保済み)")
+	fmt.Println("*Press Enter")
 	scanner.Scan() // 入力待ち
 
 	now = time.Now()
@@ -63,6 +67,7 @@ func main(){
 	fmt.Printf("所要時間: %vms\n", time.Since(now).Milliseconds())
 
 	fmt.Println("各ページへの2回目の書き込みが完了しました。")
+	fmt.Println("*Press Enter")
 	scanner.Scan() // 入力待ち
 
 }
