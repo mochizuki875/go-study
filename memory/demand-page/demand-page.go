@@ -46,7 +46,7 @@ func main(){
 		memregion[i] = 0
 	}
 
-	fmt.Printf("所要時間: %vms\n", time.Since(now).Milliseconds())
+	fmt.Printf("所要時間: %vμs\n", time.Since(now).Microseconds())
 
 	fmt.Println("各ページへの1回目の書き込みおよび物理メモリの取得が完了しました。")
 	fmt.Println("*Press Enter")
@@ -64,7 +64,7 @@ func main(){
 		memregion[i] = 0
 	}
 
-	fmt.Printf("所要時間: %vms\n", time.Since(now).Milliseconds())
+	fmt.Printf("所要時間: %vμs\n", time.Since(now).Microseconds())
 
 	fmt.Println("各ページへの2回目の書き込みが完了しました。")
 	fmt.Println("*Press Enter")
