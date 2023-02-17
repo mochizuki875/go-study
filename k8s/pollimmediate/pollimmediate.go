@@ -16,7 +16,9 @@ func test_fn() wait.ConditionFunc {
 
 func main(){
 	const podAttachAndMountRetryInterval time.Duration = 300000000 // 300ms
-	const podAttachAndMountTimeout time.Duration = 123000000000 // 2m3s
+	// const podAttachAndMountTimeout time.Duration = 123000000000 // 2m3s
+	const podAttachAndMountTimeout time.Duration = 63000000000 // 1m3s
+	
 
 	fmt.Println("Start time: ", time.Now())
 	err := wait.PollImmediate(
@@ -24,6 +26,6 @@ func main(){
 		podAttachAndMountTimeout,
 		test_fn())
 	if err != nil {
-		fmt.Println("End time: ", time.Now(), " err: ", err)		
+		fmt.Println("End time: ", time.Now(), " err: ", err) // タイムアウトの場合はエラーになる	
 	}
 }
