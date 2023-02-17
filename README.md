@@ -22,6 +22,11 @@ goroutineとchannelは頻出かつ難易度が高いので以下コンテンツ�
 - Goで並行処理(基本編)（https://zenn.dev/hsaki/books/golang-concurrency/viewer/intro）
 - Goのgoroutine, channelをちょっと攻略！（https://qiita.com/taigamikami/items/fc798cdd6a4eaf9a7d5e）
 
+### 非公開フィールド
+先頭が小文字のフィールドやメソッドは非公開(unexported)と呼ばれpackage外からアクセスできない。
+
+- Goで構造体の非公開フィールドにアクセスする方法(https://stop-the-world.hatenablog.com/entry/2019/12/31/214058)
+
 ### Queue
 - `slice`や`channel`を用いて実現できる
 - workqueue(https://qiita.com/tatsuhiro-t/items/49043fca96e484de6261)
