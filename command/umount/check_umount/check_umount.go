@@ -5,11 +5,12 @@ import (
 	"os/exec"
 )
 
-func main(){
+func main() {
 	target := "/tmp"
 	command := exec.Command("umount", target)
 	output, err := command.CombinedOutput()
-	fmt.Println("output: ",string(output))
-	fmt.Println("err: ",err)
+	fmt.Println("output: ", string(output))
+	fmt.Println("err: ", err)
+	fmt.Printf("*command: %#v\n", *command)
 
 }

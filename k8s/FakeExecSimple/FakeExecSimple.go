@@ -12,27 +12,25 @@ import (
 	testexec "k8s.io/utils/exec/testing"
 )
 
-func makeFakeCommandAction(stdout string, err error, cmdFn func()) testexec.FakeCommandAction {
+func main() {
+
+	// 事前にtestexec.FakeCmdを作ってCombinedOutputScript()実行結果を定義しておく
 	c := testexec.FakeCmd{
 		CombinedOutputScript: []testexec.FakeAction{
-			func() ([]byte, []byte, error) { // 引数cmdFnに何か定義されていれば先にそれを実行
-				if cmdFn != nil {
-					cmdFn()
-				}
-				return []byte(stdout), nil, err // FakeActionとしてstdoutとerrを返す関数を定義
+			func() ([]byte, []byte, error) { // FakeActionとしてstdoutとerrを返す関数を定義
+				return []byte("any output of command."), nil, errors.New("any error")
 			},
 		},
 	}
-	// utilexec.Cmdを返す関数(FakeCommandAction)を戻り値
-	return func(cmd string, args ...string) utilexec.Cmd {
-		return testexec.InitFakeCmd(&c, cmd, args...) // FakeCmdをexec.Cmdに実装して返すイメージ
+
+	// Commandが実行された場合に上で定義したFakeCmdを返すようにする
+
+	//   fakeCommandActionとして上で定義したFakeCmdをexec.Cmdで返す関数を定義
+	fakeCommandAction := func(cmd string, args ...string) utilexec.Cmd {
+		return testexec.InitFakeCmd(&c, cmd, args...)
 	}
-}
 
-func main() {
-
-	fakeCommandAction := makeFakeCommandAction("any output of command.", errors.New("any error"), nil)
-
+	//   CommandScriptに上で作成したfakeCommandActionを設定することでCommand()が実行されたらFakeCmdをexec.Cmdで返すようにする
 	fakeexec := &testexec.FakeExec{
 		LookPathFunc: func(s string) (string, error) {
 			return "fake-umount", nil
