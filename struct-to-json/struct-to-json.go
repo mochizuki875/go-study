@@ -17,6 +17,7 @@ type Employee struct {
 	Name    string `json:"empname"`
 	Number  *int   `json:"empid"`
 	JobType `json:"jobtype,omitempty"`
+	Member  MemberList `json:"member,omitempty"`
 }
 
 type JobType struct {
@@ -24,17 +25,18 @@ type JobType struct {
 	JobNumber int    `json:"nobnum"`
 }
 
+type MemberList map[string]string
+
 func main() {
-	name := "Mori"
 	number := 3
-	jobType := JobType{"worker", 1}
 	emp := Employee{
-		Name:    name,
+		Name:    "Mori",
 		Number:  &number,
-		JobType: jobType,
+		JobType: JobType{"worker", 1},
+		Member:  MemberList{"A": "memberA", "B": "memberB", "C": "memberC"},
 	}
 
-	fmt.Println(emp) // 普通にstructとして出力
+	fmt.Println("struct = ", emp) // 普通にstructとして出力
 	fmt.Println(reflect.TypeOf(emp))
 
 	emp_json, err := json.Marshal(emp) // Jsonとして出力
@@ -42,7 +44,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println(string(emp_json))
+	fmt.Println("json = ", string(emp_json))
 	fmt.Println(reflect.TypeOf(emp_json))
 
 }

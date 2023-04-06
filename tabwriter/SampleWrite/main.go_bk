@@ -1,0 +1,34 @@
+package main
+
+import (
+	"fmt"
+	"os"
+
+	"github.com/liggitt/tabwriter"
+)
+
+const (
+	tabwriterMinWidth = 6
+	tabwriterWidth    = 4
+	tabwriterPadding  = 3
+	tabwriterPadChar  = ' '
+	tabwriterFlags    = tabwriter.RememberWidths
+)
+
+func main() {
+	// Observe how the b's and the d's, despite appearing in the
+	// second cell of each line, belong to different columns.
+	// w := tabwriter.NewWriter(os.Stdout, 0, 0, 1, '.', tabwriter.AlignRight|tabwriter.Debug)
+
+	// witerの作成
+	w := tabwriter.NewWriter(os.Stdout, tabwriterMinWidth, tabwriterWidth, tabwriterPadding, tabwriterPadChar, tabwriterFlags)
+
+	// バッファ書き込み
+	fmt.Fprintln(w, "a\tb\tc")
+	fmt.Fprintln(w, "aa\tbb\tcc")
+	fmt.Fprintln(w, "aaa\t")
+	fmt.Fprintln(w, "aaaa\tdddd\teeee")
+
+	w.Flush() // ここで書き込んだ内容を出力
+
+}
